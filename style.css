@@ -103,20 +103,17 @@ h1 {
   margin: 20px auto 30px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
 }
 
-/* Scrollbar gizle */
 .tabs::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome / Safari */
 }
 
 .tab {
   white-space: nowrap;
   flex-shrink: 0;
-}
 
-
-.tab {
   padding: 10px 26px;
   font-size: 16px;
   border-radius: 25px;
@@ -124,13 +121,14 @@ h1 {
   background: #2a2a2a;
   color: #fff;
   cursor: pointer;
-  transition: all .3s ease;
+  transition: all .25s ease;
 }
 
 .tab.active {
   background: #f5b301;
   color: #000;
   font-weight: bold;
+  transform: scale(1.05);
 }
 
 
@@ -227,5 +225,12 @@ h1 {
   }
 }
 
+.card {
+  transition: transform .2s ease;
+}
+
+.card:active {
+  transform: scale(0.97);
+}
 
 
