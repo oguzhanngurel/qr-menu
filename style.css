@@ -113,5 +113,41 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+/* =========================
+   SEKME BUTONLARI (TABS)
+========================= */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto 30px;
+}
 
+.tab {
+  padding: 10px 26px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  background: #2a2a2a;
+  color: #fff;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.tab.active {
+  background: #f5b301;
+  color: #000;
+  font-weight: bold;
+}
+
+/* =========================
+   SEKME İÇERİKLERİ
+========================= */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
 
