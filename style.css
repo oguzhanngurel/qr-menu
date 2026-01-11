@@ -55,8 +55,9 @@ h1 {
 }
 
 .nav-btn {
-  margin: 25px auto 0;
-  display: inline-flex;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 8px;
 
@@ -109,9 +110,14 @@ h1 {
   gap: 12px;
   padding: 0 16px;
   margin: 20px auto 30px;
+
   overflow-x: auto;
+  overflow-y: hidden;   /* 🔒 DİKEY KİLİT */
+
+  touch-action: pan-x;  /* 🔥 SADECE SAĞ–SOL */
+  
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .tabs::-webkit-scrollbar {
