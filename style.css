@@ -227,10 +227,13 @@ h1 {
 
 .card {
   transition: transform .2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .card:active {
   transform: scale(0.97);
 }
 
-
+.card.pressed {
+  transform: scale(0.97);
+}
