@@ -55,9 +55,13 @@ h1 {
 }
 
 .nav-btn {
-  margin: 30px auto;
-  display: flex;
-  justify-content: center;
+  position: relative;   /* 🔥 absolute etkisini kırar */
+  left: 50%;
+  transform: translateX(-50%);
+
+  margin: 30px 0;
+
+  display: inline-flex;
   align-items: center;
   gap: 8px;
 
@@ -66,12 +70,10 @@ h1 {
   font-weight: 600;
 
   background: #f5b301;
-  color: #000;              /* 🔥 SİYAH YAZI */
+  color: #000;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-
-  transition: transform .2s ease;
 }
 
 
@@ -112,12 +114,18 @@ h1 {
   margin: 20px auto 30px;
 
   overflow-x: auto;
-  overflow-y: hidden;   /* 🔒 DİKEY KİLİT */
+  overflow-y: hidden;
 
-  touch-action: pan-x;  /* 🔥 SADECE SAĞ–SOL */
-  
+  white-space: nowrap;
+
+  touch-action: pan-x;
+  overscroll-behavior: contain;
+
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+
+  height: 52px;           /* 🔥 Y eksenini kilitler */
+  align-items: center;    /* 🔥 dikey sabitleme */
 }
 
 .tabs::-webkit-scrollbar {
