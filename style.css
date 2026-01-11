@@ -51,14 +51,6 @@ h1 {
   font-weight:bold;
 }
 
-.page {
-  display:none;
-}
-
-.page.active {
-  display:block;
-}
-
 .nav-btn {
   margin:25px auto 0;
   display:block;
@@ -69,17 +61,29 @@ h1 {
   border-radius:25px;
   cursor:pointer;
 }
+
+/* =========================
+   SEKME GÖRÜNÜRLÜĞÜ
+========================= */
+.menu-section {
+  display: none;
+}
+
+.menu-section.active {
+  display: block;
+}
+
 /* =========================
    MOBİL DÜZEN (RESPONSIVE)
 ========================= */
 @media (max-width: 768px) {
 
-  .menu-grid {
+  .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
-  .menu-item {
+  .card {
     padding: 10px;
   }
 
@@ -109,7 +113,7 @@ h1 {
 
 /* Çok küçük ekranlar */
 @media (max-width: 420px) {
-  .menu-grid {
+  .grid {
     grid-template-columns: 1fr;
   }
 }
@@ -140,14 +144,118 @@ h1 {
   font-weight: bold;
 }
 
+
 /* =========================
-   SEKME İÇERİKLERİ
+   MOBİL & ANİMASYON DÜZENİ
 ========================= */
-.tab-content {
-  display: none;
+
+/* Sekme geçiş animasyonu */
+.menu-section {
+  position: relative;
+  min-height: 600px;
 }
 
-.tab-content.active {
-  display: block;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sayfa geçişleri */
+.page {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all .4s ease;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative;
+}
+
+/* =========================
+   MOBİL QR MENÜ OPTİMİZASYON
+========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .card span {
+    font-size: 15px;
+  }
+
+  .nav-btn {
+    font-size: 16px;
+    padding: 14px 34px;
+  }
+}
+
+/* Tek kolon – kiosk hissi */
+@media (max-width: 420px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card span {
+    font-size: 17px;
+  }
+}
+.page {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity .4s ease, transform .4s ease;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative;
 }
 
