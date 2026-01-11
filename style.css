@@ -122,10 +122,23 @@ h1 {
 ========================= */
 .tabs {
   display: flex;
-  justify-content: center;
   gap: 12px;
+  padding: 0 16px;
   margin: 20px auto 30px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
+
+/* Scrollbar gizle */
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 
 .tab {
   padding: 10px 26px;
@@ -241,21 +254,17 @@ h1 {
     font-size: 17px;
   }
 }
-.page {
+
+/* Sekme içerik animasyonu */
+.tab-content {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity .4s ease, transform .4s ease;
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
+  transform: translateY(15px);
+  transition: all .35s ease;
 }
 
-.page.active {
+.tab-content.active {
   opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-  position: relative;
+  transform: translateY(0);
 }
+
 
