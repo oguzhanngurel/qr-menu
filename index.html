@@ -252,6 +252,17 @@ window.onload = () => {
     window.scrollTo(0, 1);
   }, 100);
 };
+
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('touchstart', () => {
+    card.classList.add('pressed');
+  });
+
+  card.addEventListener('touchend', () => {
+    card.classList.remove('pressed');
+  });
+});
+
 </script>
 
 
