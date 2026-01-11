@@ -8,6 +8,9 @@ body {
   max-width:1200px;
   margin:auto;
   padding:20px;
+  display: none;
+  position: relative;
+  min-height: 600px;
 }
 
 h1 {
@@ -62,12 +65,6 @@ h1 {
   cursor:pointer;
 }
 
-/* =========================
-   SEKME GÖRÜNÜRLÜĞÜ
-========================= */
-.menu-section {
-  display: none;
-}
 
 .menu-section.active {
   display: block;
@@ -87,28 +84,7 @@ h1 {
     padding: 10px;
   }
 
-  .menu-item h3 {
-    font-size: 15px;
-    line-height: 1.2;
-  }
 
-  .menu-item .gram {
-    font-size: 12px;
-  }
-
-  .menu-item .price {
-    font-size: 14px;
-    margin-top: 4px;
-  }
-
-  .menu-item img {
-    height: 120px;
-    object-fit: cover;
-  }
-
-  .pagination {
-    margin-top: 20px;
-  }
 }
 
 /* Çok küçük ekranlar */
@@ -162,11 +138,6 @@ h1 {
    MOBİL & ANİMASYON DÜZENİ
 ========================= */
 
-/* Sekme geçiş animasyonu */
-.menu-section {
-  position: relative;
-  min-height: 600px;
-}
 
 @keyframes fadeIn {
   from {
@@ -186,6 +157,7 @@ h1 {
   transition: all .4s ease;
   pointer-events: none;
   position: absolute;
+  inset: 0;
   width: 100%;
   left: 0;
   top: 0;
@@ -255,16 +227,5 @@ h1 {
   }
 }
 
-/* Sekme içerik animasyonu */
-.tab-content {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: all .35s ease;
-}
-
-.tab-content.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 
