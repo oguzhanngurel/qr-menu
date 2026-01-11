@@ -55,14 +55,22 @@ h1 {
 }
 
 .nav-btn {
-  margin:25px auto 0;
-  display:block;
-  padding:12px 30px;
-  font-size:16px;
-  background:#f5b301;
-  border:none;
-  border-radius:25px;
-  cursor:pointer;
+  margin: 25px auto 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 14px 34px;
+  font-size: 16px;
+  font-weight: 600;
+
+  background: #f5b301;
+  color: #000;              /* 🔥 SİYAH YAZI */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+
+  transition: transform .2s ease;
 }
 
 
@@ -236,4 +244,13 @@ h1 {
 
 .card.pressed {
   transform: scale(0.97);
+}
+
+.arrow {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1;
+}
+.nav-btn:active {
+  transform: scale(0.95);
 }
