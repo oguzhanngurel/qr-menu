@@ -7,13 +7,19 @@
 </head>
 <body>
 
-<section class="menu-section">
+<div class="tabs">
+ <button class="tab active" onclick="openTab('izgaralar', this)">Izgaralar</button>
+<button class="tab" onclick="openTab('soguk', this)">Soğuk Mezeler</button>
+<button class="tab" onclick="openTab('salatalar', this)">Salatalar</button>
+<button class="tab" onclick="openTab('desserts', this)">Tatlılar</button>
+</div>
+
+<!-- ================= IZGARALAR ================= -->
+<section class="menu-section tab-content active" id="izgaralar">
   <h1>Izgaralar</h1>
 
-  <!-- SAYFA 1 -->
-  <div class="page active" id="page1">
+  <div class="page active">
     <div class="grid">
-
       <div class="card"><img src="images/ornek.jpg"><h3>Kuzu Pirzola</h3><p>300 gr</p><span>1000 TL</span></div>
       <div class="card"><img src="images/ornek.jpg"><h3>Domatesli Kebap</h3><p>300 gr</p><span>850 TL</span></div>
       <div class="card"><img src="images/patlicanli-kebap.jpg"><h3>Patlıcanlı Kebap</h3><p>300 gr</p><span>850 TL</span></div>
@@ -23,15 +29,12 @@
       <div class="card"><img src="images/tavuk-kanat.jpg"><h3>Tavuk Kanat</h3><p>250 gr</p><span>700 TL</span></div>
       <div class="card"><img src="images/buftek.jpg"><h3>Buftek</h3><p>280 gr</p><span>1000 TL</span></div>
       <div class="card"><img src="images/mantar-guvec.jpg"><h3>Mantar Güveç</h3><p>300 gr</p><span>600 TL</span></div>
-
     </div>
-    <button class="nav-btn" onclick="goPage(2)">İleri ➜</button>
+    <button class="nav-btn" onclick="goPage(this, 2)">İleri ➜</button>
   </div>
 
-  <!-- SAYFA 2 -->
-  <div class="page" id="page2">
+  <div class="page">
     <div class="grid">
-
       <div class="card"><img src="images/adana.jpg"><h3>Adana Kebap</h3><p>180 gr</p><span>700 TL</span></div>
       <div class="card"><img src="images/urfa.jpg"><h3>Urfa Kebap</h3><p>180 gr</p><span>700 TL</span></div>
       <div class="card"><img src="images/kuzu-sis.jpg"><h3>Kuzu Şiş</h3><p>200 gr</p><span>1000 TL</span></div>
@@ -41,17 +44,203 @@
       <div class="card"><img src="images/ali-nazik.jpg"><h3>Ali Nazik</h3><p>300 gr</p><span>1000 TL</span></div>
       <div class="card"><img src="images/izgara-kofte.jpg"><h3>Izgara Köfte</h3><p>200 gr</p><span>700 TL</span></div>
       <div class="card"><img src="images/karisik-kebap.jpg"><h3>Karışık Kebap</h3><p>600 gr</p><span>1700 TL</span></div>
-
     </div>
-    <button class="nav-btn" onclick="goPage(1)">⬅ Geri</button>
+    <button class="nav-btn" onclick="goPage(this, 1)">⬅ Geri</button>
   </div>
-
 </section>
 
+<!-- ================= SOĞUK MEZELER ================= -->
+<section class="menu-section tab-content" id="soguk">
+  <h1>Soğuk Mezeler</h1>
+
+  <div class="page active">
+    <div class="grid">
+      <div class="card"><img src="images/ornek.jpg"><h3>Karışık Meze Tabağı</h3><span>800 TL</span></div>
+      <div class="card"><img src="images/ornek.jpg"><h3>Acılı Ezme</h3><span>180 TL</span></div>
+      <div class="card"><img src="images/haydari.jpg"><h3>Haydari</h3><span>180 TL</span></div>
+      <div class="card"><img src="images/kozde-biber.jpg"><h3>Közde Biber</h3><span>180 TL</span></div>
+      <div class="card"><img src="images/karisik-tursu.jpg"><h3>Karışık Turşu</h3><span>180 TL</span></div>
+      <div class="card"><img src="images/yaprak-sarma.jpg"><h3>Yaprak Sarması</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/pilaki.jpg"><h3>Pilaki</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/beyaz-peynir.jpg"><h3>Beyaz Peynir</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/tulum-peyniri.jpg"><h3>Tulum Peyniri</h3><span>200 TL</span></div>
+    </div>
+    <button class="nav-btn" onclick="goPage(this, 2)">İleri ➜</button>
+  </div>
+
+  <div class="page">
+    <div class="grid">
+      <div class="card"><img src="images/koz-sogan.jpg"><h3>Közde Sarımsak Soğan</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/girit-ezme.jpg"><h3>Girit Ezme</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/tirokafteri.jpg"><h3>Tirokafteri</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/patlican-ezme.jpg"><h3>Patlıcan Ezmesi</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/atom.jpg"><h3>Atom</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/kopoglu.jpg"><h3>Köpoğlu</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/cigkofte.jpg"><h3>Çiğköfte</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/cacik.jpg"><h3>Cacık</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/patates.jpg"><h3>Patates Tava</h3><span>300 TL</span></div>
+    </div>
+    <button class="nav-btn" onclick="goPage(this, 1)">⬅ Geri</button>
+  </div>
+</section>
+
+<!-- ================= SALATALAR ================= -->
+<section class="menu-section tab-content" id="salatalar">
+  <h1>Salatalar</h1>
+
+  <div class="page active">
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/ornek.jpg">
+        <h3>Yeşil Salata</h3>
+        <span>240 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/ornek.jpg">
+        <h3>Mevsim Salata</h3>
+        <span>240 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/yunan-salata.jpg">
+        <h3>Yunan Salata</h3>
+        <span>240 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/gavurdagi-salata.jpg">
+        <h3>Gavur Dağı Salata</h3>
+        <span>250 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/coban-salata.jpg">
+        <h3>Çoban Salata</h3>
+        <span>240 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/roka-salata.jpg">
+        <h3>Roka Salata</h3>
+        <span>240 TL</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= TATLILAR ================= -->
+<section class="menu-section tab-content" id="desserts">
+  <h1>Tatlılar</h1>
+
+  <div class="page active">
+    <div class="grid">
+
+      <div class="card">
+        <img src="images/ornek.jpg">
+        <h3>Baklava</h3>
+        <p>Dessert</p>
+        <span>500 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/ornek.jpg">
+        <h3>Künefe</h3>
+        <p>Cheesy Dessert</p>
+        <span>550 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/katmer.jpg">
+        <h3>Katmer</h3>
+        <p>Dessert</p>
+        <span>600 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/sutlac.jpg">
+        <h3>Sütlaç</h3>
+        <p>Rice Pudding</p>
+        <span>300 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/helva-kiremit.jpg">
+        <h3>Helva Kiremit</h3>
+        <p>Halva Cooked in Pot</p>
+        <span>400 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/kabak-tatlisi.jpg">
+        <h3>Kabak Tatlısı</h3>
+        <p>Pumpkin Dessert</p>
+        <span>400 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/balli-muz.jpg">
+        <h3>Ballı Muz</h3>
+        <p>Banana with Honey</p>
+        <span>400 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/kavun.jpg">
+        <h3>Kavun</h3>
+        <p>Melon</p>
+        <span>200 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/karpuz.jpg">
+        <h3>Karpuz</h3>
+        <p>Watermelon</p>
+        <span>200 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/mevsim-meyveleri.jpg">
+        <h3>Mevsim Meyveleri</h3>
+        <p>Season Fruits</p>
+        <span>350 TL</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <script>
-function goPage(n) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page' + n).classList.add('active');
+function goPage(btn, pageIndex) {
+  const section = btn.closest('.menu-section');
+  const pages = section.querySelectorAll('.page');
+
+  pages.forEach(p => p.classList.remove('active'));
+  pages[pageIndex - 1].classList.add('active');
+}
+
+function openTab(tabId) {
+  // Sekme butonları
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Tüm sekmeleri gizle
+  document.querySelectorAll('.tab-content').forEach(section => {
+    section.classList.remove('active');
+
+    // 🔥 HER SEKMEDE SAYFAYI SIFIRLA
+    const pages = section.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+    if (pages.length > 0) {
+      pages[0].classList.add('active');
+    }
+  });
+
+  // Seçilen sekmeyi aç
+  document.getElementById(tabId).classList.add('active');
 }
 </script>
 
