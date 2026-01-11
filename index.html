@@ -1,101 +1,59 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Menü – Izgaralar</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Durak Ocakbaşı Menü</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-  <h1>IZGARALAR</h1>
-</header>
+<section class="menu-section">
+  <h1>Izgaralar</h1>
 
-<main class="menu">
+  <!-- SAYFA 1 -->
+  <div class="page active" id="page1">
+    <div class="grid">
 
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Kuzu Pirzola">
-    <div class="info">
-      <h3>Kuzu Pirzola</h3>
-      <p>300 gr</p>
+      <div class="card"><img src="images/ornek.jpg"><h3>Kuzu Pirzola</h3><p>300 gr</p><span>1000 TL</span></div>
+      <div class="card"><img src="images/ornek.jpg"><h3>Domatesli Kebap</h3><p>300 gr</p><span>850 TL</span></div>
+      <div class="card"><img src="images/patlicanli-kebap.jpg"><h3>Patlıcanlı Kebap</h3><p>300 gr</p><span>850 TL</span></div>
+      <div class="card"><img src="images/beyti-kebap.jpg"><h3>Beyti Kebap</h3><p>200 gr</p><span>1100 TL</span></div>
+      <div class="card"><img src="images/et-cop-sis.jpg"><h3>Et Çöp Şiş</h3><p>250 gr</p><span>900 TL</span></div>
+      <div class="card"><img src="images/tavuk-sis.jpg"><h3>Tavuk Şiş</h3><p>200 gr</p><span>700 TL</span></div>
+      <div class="card"><img src="images/tavuk-kanat.jpg"><h3>Tavuk Kanat</h3><p>250 gr</p><span>700 TL</span></div>
+      <div class="card"><img src="images/buftek.jpg"><h3>Buftek</h3><p>280 gr</p><span>1000 TL</span></div>
+      <div class="card"><img src="images/mantar-guvec.jpg"><h3>Mantar Güveç</h3><p>300 gr</p><span>600 TL</span></div>
+
     </div>
-    <div class="price">₺1000</div>
+    <button class="nav-btn" onclick="goPage(2)">İleri ➜</button>
   </div>
 
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Domatesli Kebap">
-    <div class="info">
-      <h3>Domatesli Kebap</h3>
-      <p>300 gr</p>
+  <!-- SAYFA 2 -->
+  <div class="page" id="page2">
+    <div class="grid">
+
+      <div class="card"><img src="images/adana.jpg"><h3>Adana Kebap</h3><p>180 gr</p><span>700 TL</span></div>
+      <div class="card"><img src="images/urfa.jpg"><h3>Urfa Kebap</h3><p>180 gr</p><span>700 TL</span></div>
+      <div class="card"><img src="images/kuzu-sis.jpg"><h3>Kuzu Şiş</h3><p>200 gr</p><span>1000 TL</span></div>
+      <div class="card"><img src="images/ciger-sis.jpg"><h3>Ciğer Şiş</h3><p>250 gr</p><span>1000 TL</span></div>
+      <div class="card"><img src="images/kuzu-kaburga.jpg"><h3>Kuzu Kaburga</h3><p>350 gr</p><span>850 TL</span></div>
+      <div class="card"><img src="images/kulbasti.jpg"><h3>Külbastı</h3><p>280 gr</p><span>1000 TL</span></div>
+      <div class="card"><img src="images/ali-nazik.jpg"><h3>Ali Nazik</h3><p>300 gr</p><span>1000 TL</span></div>
+      <div class="card"><img src="images/izgara-kofte.jpg"><h3>Izgara Köfte</h3><p>200 gr</p><span>700 TL</span></div>
+      <div class="card"><img src="images/karisik-kebap.jpg"><h3>Karışık Kebap</h3><p>600 gr</p><span>1700 TL</span></div>
+
     </div>
-    <div class="price">₺850</div>
+    <button class="nav-btn" onclick="goPage(1)">⬅ Geri</button>
   </div>
 
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Patlıcanlı Kebap">
-    <div class="info">
-      <h3>Patlıcanlı Kebap</h3>
-      <p>300 gr</p>
-    </div>
-    <div class="price">₺850</div>
-  </div>
+</section>
 
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Beyti Kebap">
-    <div class="info">
-      <h3>Beyti Kebap</h3>
-      <p>200 gr</p>
-    </div>
-    <div class="price">₺1100</div>
-  </div>
-
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Et Çöp Şiş">
-    <div class="info">
-      <h3>Et Çöp Şiş</h3>
-      <p>250 gr</p>
-    </div>
-    <div class="price">₺900</div>
-  </div>
-
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Tavuk Şiş">
-    <div class="info">
-      <h3>Tavuk Şiş</h3>
-      <p>200 gr</p>
-    </div>
-    <div class="price">₺700</div>
-  </div>
-
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Tavuk Kanat">
-    <div class="info">
-      <h3>Tavuk Kanat</h3>
-      <p>250 gr</p>
-    </div>
-    <div class="price">₺700</div>
-  </div>
-
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Büftek">
-    <div class="info">
-      <h3>Büftek</h3>
-      <p>280 gr</p>
-    </div>
-    <div class="price">₺1000</div>
-  </div>
-
-  <div class="card">
-    <img src="images/ornek.jpg" alt="Mantar Güveç">
-    <div class="info">
-      <h3>Mantar Güveç</h3>
-      <p>300 gr</p>
-    </div>
-    <div class="price">₺600</div>
-  </div>
-
-</main>
+<script>
+function goPage(n) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + n).classList.add('active');
+}
+</script>
 
 </body>
 </html>
