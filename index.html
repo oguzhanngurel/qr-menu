@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
 <meta charset="UTF-8">
 <title>Durak Ocakbaşı Menü</title>
 <link rel="stylesheet" href="style.css">
@@ -15,7 +19,7 @@
 </div>
 
 <!-- ================= IZGARALAR ================= -->
-<section class="menu-section tab-content active" id="izgaralar">
+<section class="menu-section active" id="izgaralar">
   <h1>Izgaralar</h1>
 
   <div class="page active">
@@ -35,8 +39,8 @@
 
   <div class="page">
     <div class="grid">
-      <div class="card"><img src="images/adana.jpg"><h3>Adana Kebap</h3><p>180 gr</p><span>700 TL</span></div>
-      <div class="card"><img src="images/urfa.jpg"><h3>Urfa Kebap</h3><p>180 gr</p><span>700 TL</span></div>
+      <div class="card"><img src="images/ornek.jpg"><h3>Adana Kebap</h3><p>180 gr</p><span>700 TL</span></div>
+      <div class="card"><img src="images/ornek.jpg"><h3>Urfa Kebap</h3><p>180 gr</p><span>700 TL</span></div>
       <div class="card"><img src="images/kuzu-sis.jpg"><h3>Kuzu Şiş</h3><p>200 gr</p><span>1000 TL</span></div>
       <div class="card"><img src="images/ciger-sis.jpg"><h3>Ciğer Şiş</h3><p>250 gr</p><span>1000 TL</span></div>
       <div class="card"><img src="images/kuzu-kaburga.jpg"><h3>Kuzu Kaburga</h3><p>350 gr</p><span>850 TL</span></div>
@@ -50,7 +54,7 @@
 </section>
 
 <!-- ================= SOĞUK MEZELER ================= -->
-<section class="menu-section tab-content" id="soguk">
+<section class="menu-section" id="soguk">
   <h1>Soğuk Mezeler</h1>
 
   <div class="page active">
@@ -70,8 +74,8 @@
 
   <div class="page">
     <div class="grid">
-      <div class="card"><img src="images/koz-sogan.jpg"><h3>Közde Sarımsak Soğan</h3><span>200 TL</span></div>
-      <div class="card"><img src="images/girit-ezme.jpg"><h3>Girit Ezme</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/ornek.jpg"><h3>Közde Sarımsak Soğan</h3><span>200 TL</span></div>
+      <div class="card"><img src="images/ornek.jpg"><h3>Girit Ezme</h3><span>200 TL</span></div>
       <div class="card"><img src="images/tirokafteri.jpg"><h3>Tirokafteri</h3><span>200 TL</span></div>
       <div class="card"><img src="images/patlican-ezme.jpg"><h3>Patlıcan Ezmesi</h3><span>200 TL</span></div>
       <div class="card"><img src="images/atom.jpg"><h3>Atom</h3><span>200 TL</span></div>
@@ -85,7 +89,7 @@
 </section>
 
 <!-- ================= SALATALAR ================= -->
-<section class="menu-section tab-content" id="salatalar">
+<section class="menu-section" id="salatalar">
   <h1>Salatalar</h1>
 
   <div class="page active">
@@ -132,7 +136,7 @@
 </section>
 
 <!-- ================= TATLILAR ================= -->
-<section class="menu-section tab-content" id="desserts">
+<section class="menu-section" id="desserts">
   <h1>Tatlılar</h1>
 
   <div class="page active">
@@ -222,16 +226,15 @@ function goPage(btn, pageIndex) {
   pages[pageIndex - 1].classList.add('active');
 }
 
-function openTab(tabId) {
+function openTab(tabId, btn) {
   // Sekme butonları
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
 
-  // Tüm sekmeleri gizle
-  document.querySelectorAll('.tab-content').forEach(section => {
+  // Tüm sekmeleri gizle + sayfayı sıfırla
+  document.querySelectorAll('.menu-section').forEach(section => {
     section.classList.remove('active');
 
-    // 🔥 HER SEKMEDE SAYFAYI SIFIRLA
     const pages = section.querySelectorAll('.page');
     pages.forEach(p => p.classList.remove('active'));
     if (pages.length > 0) {
@@ -242,7 +245,15 @@ function openTab(tabId) {
   // Seçilen sekmeyi aç
   document.getElementById(tabId).classList.add('active');
 }
+
+/* QR menü kiosk hissi */
+window.onload = () => {
+  setTimeout(() => {
+    window.scrollTo(0, 1);
+  }, 100);
+};
 </script>
+
 
 </body>
 </html>
