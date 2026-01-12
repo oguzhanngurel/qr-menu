@@ -286,3 +286,65 @@ h1 {
   font-size: 16px;
   outline: none;
 }
+
+.sub-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0 20px;
+  overflow-x: auto;
+}
+
+.sub-tab {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #2a2a2a;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sub-tab.active {
+  background: #f5b301;
+  color: #000;
+  font-weight: bold;
+}
+
+/*Rakı*/
+.rakı-header,
+.rakı-row {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 6px;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.rakı-header {
+  font-weight: bold;
+  color: #f5b301;
+  border-bottom: 1px solid #333;
+}
+
+.rakı-row {
+  border-bottom: 1px solid #222;
+}
+
+.rakı-row span {
+  text-align: center;
+}
+
+.rakı-row span:first-child {
+  text-align: left;
+}
+
+/* İçecekler alt sekmeleri gizleme */
+.drink-section {
+  display: none;
+}
+
+.drink-section.active {
+  display: block;
+}
