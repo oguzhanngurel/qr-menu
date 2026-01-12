@@ -519,7 +519,7 @@ function goPage(btn, pageIndex) {
 const searchInput = document.getElementById('searchInput');
 
 function openTab(tabId, btn, fromSearch = false) {
-  searchInput.blur();
+  if (!fromSearch) searchInput.blur();
 
   if (!fromSearch && searchInput.value.trim() !== '') {
     searchInput.value = '';
