@@ -610,8 +610,14 @@ searchInput.addEventListener('input', function () {
     });
 
     if (matchedTab) {
-      openTab(matchedTab, document.querySelector(`.tab[onclick*="${matchedTab}"]`), true);
-    }
+  document.querySelectorAll('.menu-section').forEach(s => {
+    s.classList.remove('active');
+  });
+
+  const target = document.getElementById(matchedTab);
+  if (target) target.classList.add('active');
+}
+
 
   } else {
     document.body.classList.remove('searching');
