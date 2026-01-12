@@ -16,6 +16,7 @@
 <button class="tab" onclick="openTab('soguk', this)">Soğuk Mezeler</button>
 <button class="tab" onclick="openTab('salatalar', this)">Salatalar</button>
 <button class="tab" onclick="openTab('desserts', this)">Tatlılar</button>
+<button class="tab" onclick="openTab('icecekler', this)">İçecekler</button>
 </div>
 <div class="search-box">
   <input 
@@ -231,6 +232,279 @@
   </div>
 </section>
 
+<!-- ================= İÇECEKLER ================= -->
+<section class="menu-section" id="icecekler">
+  <h1>İçecekler</h1>
+  <!-- 👇 ALT SEKME BUTONLARI BURAYA -->
+<div class="sub-tabs">
+  <button class="sub-tab active" onclick="openDrinkTab('cold', this)">Soğuk</button>
+  <button class="sub-tab" onclick="openDrinkTab('alcohol', this)">Alkollü</button>
+  <button class="sub-tab" onclick="openDrinkTab('wine', this)">Şaraplar</button>
+</div>
+
+
+   <!-- 👇 ALT İÇERİKLER BURADA BAŞLIYOR -->
+  <div class="drink-section active" id="cold">
+    <div class="grid">
+	
+      <!-- 🧊 Tek Kart: Gazlı İçecekler -->
+      <div class="card">
+        <img src="images/ornek.jpg">
+        <h3>Cola / Fanta / Sprite / Ice Tea</h3>
+        <p>300 ml</p>
+        <span>140 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/ornek.jpg">
+        <h3>Portakal Suyu</h3>
+        <p>330 ml</p>
+        <span>180 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/elma-suyu.jpg">
+        <h3>Elma Suyu</h3>
+        <p>330 ml</p>
+        <span>140 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/seftali-suyu.jpg">
+        <h3>Şeftali Suyu</h3>
+        <p>330 ml</p>
+        <span>140 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/visne-suyu.jpg">
+        <h3>Vişne Suyu</h3>
+        <p>330 ml</p>
+        <span>140 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/limonata.jpg">
+        <h3>Limonata</h3>
+        <p>330 ml</p>
+        <span>150 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/soda.jpg">
+        <h3>Soda</h3>
+        <p>330 ml</p>
+        <span>100 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/ayran.jpg">
+        <h3>Ayran</h3>
+        <p>200 ml</p>
+        <span>100 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/redbull.jpg">
+        <h3>Redbull</h3>
+        <p>250 ml</p>
+        <span>230 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/salgam.jpg">
+        <h3>Küçük Şalgam</h3>
+        <p>300 ml</p>
+        <span>120 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/salgam-buyuk.jpg">
+        <h3>Büyük Şalgam</h3>
+        <p>1 lt</p>
+        <span>200 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/su-kucuk.jpg">
+        <h3>Küçük Su</h3>
+        <p>0,5 lt</p>
+        <span>80 TL</span>
+      </div>
+
+      <div class="card">
+        <img src="images/su-buyuk.jpg">
+        <h3>Büyük Su</h3>
+        <p>1 lt</p>
+        <span>120 TL</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="drink-section" id="alcohol">
+
+  <!-- 🍺 BİRALAR -->
+  <h2 class="section-title">🍺 Biralar (33 cl)</h2>
+  <div class="grid">
+    <div class="card"><h3>Efes</h3><span>300 TL</span></div>
+    <div class="card"><h3>Tuborg</h3><span>300 TL</span></div>
+    <div class="card"><h3>Bomonti</h3><span>350 TL</span></div>
+    <div class="card"><h3>Corona</h3><span>350 TL</span></div>
+    <div class="card"><h3>Carlsberg</h3><span>350 TL</span></div>
+  </div>
+
+  <!-- 🥃 DUBLELER -->
+  <h2 class="section-title">🥃 Dubleler</h2>
+  <div class="grid">
+    <div class="card"><h3>Viski / Whiskey</h3><span>600 TL</span></div>
+    <div class="card"><h3>Cin</h3><span>550 TL</span></div>
+    <div class="card"><h3>Votka / Vodka</h3><span>550 TL</span></div>
+    <div class="card"><h3>Rum</h3><span>600 TL</span></div>
+    <div class="card"><h3>Kadeh Şarap</h3><span>500 TL</span></div>
+  </div>
+
+  <!-- 🍶 RAKILAR -->
+  <h2 class="section-title">🍶 Rakılar</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Yeni Rakı</h3>
+      <p>20 cl — 1100 TL</p>
+      <p>35 cl — 1800 TL</p>
+      <p>50 cl — 2400 TL</p>
+      <p>70 cl — 3000 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Yeni Rakı Yeni Seri</h3>
+      <p>20 cl — 1200 TL</p>
+      <p>35 cl — 1900 TL</p>
+      <p>50 cl — 2500 TL</p>
+      <p>70 cl — 3100 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Tekirdağ Altın Seri</h3>
+      <p>20 cl — 1200 TL</p>
+      <p>35 cl — 1900 TL</p>
+      <p>50 cl — 2500 TL</p>
+      <p>70 cl — 3100 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Efe Gold</h3>
+      <p>20 cl — 1300 TL</p>
+      <p>35 cl — 2000 TL</p>
+      <p>50 cl — 2600 TL</p>
+      <p>70 cl — 3200 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Efe Yaş Üzüm</h3>
+      <p>20 cl — 1200 TL</p>
+      <p>35 cl — 1900 TL</p>
+      <p>50 cl — 2500 TL</p>
+      <p>70 cl — 3100 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Efe Göbek</h3>
+      <p>20 cl — 1200 TL</p>
+      <p>35 cl — 1900 TL</p>
+      <p>50 cl — 2500 TL</p>
+      <p>70 cl — 3100 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Sarı Zeybek</h3>
+      <p>20 cl — 1300 TL</p>
+      <p>35 cl — 2000 TL</p>
+      <p>50 cl — 2600 TL</p>
+      <p>70 cl — 3200 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Sarı Zeybek Taş Üzüm</h3>
+      <p>20 cl — 1300 TL</p>
+      <p>35 cl — 2000 TL</p>
+      <p>50 cl — 2600 TL</p>
+      <p>70 cl — 3200 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Sarı Zeybek Original</h3>
+      <p>20 cl — 1300 TL</p>
+      <p>35 cl — 2000 TL</p>
+      <p>50 cl — 2600 TL</p>
+      <p>70 cl — 3200 TL</p>
+    </div>
+
+    <div class="card">
+      <h3>Beylerbeyi Göbek</h3>
+      <p>20 cl — 1300 TL</p>
+      <p>35 cl — 2000 TL</p>
+      <p>50 cl — 2600 TL</p>
+      <p>70 cl — 3200 TL</p>
+    </div>
+
+  </div>
+</div>
+
+  </div>
+
+  <div class="drink-section" id="wine">
+
+  <!-- 🍷 KIRMIZI ŞARAPLAR -->
+  <h2 class="section-title">🍷 Kırmızı Şaraplar (70 cl)</h2>
+  <div class="grid">
+    <div class="card"><h3>Angora</h3><span>3000 TL</span></div>
+    <div class="card"><h3>Yakut</h3><span>3000 TL</span></div>
+    <div class="card"><h3>Cabernet Sauvignon</h3><span>3100 TL</span></div>
+    <div class="card"><h3>Shiraz</h3><span></span></div>
+    <div class="card"><h3>Merlot</h3><span>3100 TL</span></div>
+    <div class="card"><h3>Buzbağ</h3><span></span></div>
+    <div class="card"><h3>Terra</h3><span></span></div>
+    <div class="card"><h3>Kayra</h3><span></span></div>
+    <div class="card"><h3>Vintage</h3><span></span></div>
+  </div>
+
+  <!-- 🥂 BEYAZ ŞARAPLAR -->
+  <h2 class="section-title">🥂 Beyaz Şaraplar (70 cl)</h2>
+  <div class="grid">
+    <div class="card"><h3>Angora</h3><span>3300 TL</span></div>
+    <div class="card"><h3>Çankaya</h3><span>3300 TL</span></div>
+    <div class="card"><h3>Sauvignon</h3><span>3300 TL</span></div>
+    <div class="card"><h3>Chardonnay</h3><span></span></div>
+    <div class="card"><h3>Selection</h3><span>3500 TL</span></div>
+    <div class="card"><h3>Sultaniye (Yarı Tatlı)</h3><span></span></div>
+    <div class="card"><h3>Buzbağ</h3><span></span></div>
+    <div class="card"><h3>Terra</h3><span></span></div>
+    <div class="card"><h3>Kayra</h3><span></span></div>
+    <div class="card"><h3>Vintage</h3><span></span></div>
+  </div>
+
+  <!-- 🌸 ROZE ŞARAPLAR -->
+  <h2 class="section-title">🌸 Roze Şaraplar (70 cl)</h2>
+  <div class="grid">
+    <div class="card"><h3>Lâl</h3><span></span></div>
+    <div class="card"><h3>Roze</h3><span></span></div>
+  </div>
+
+  <!-- 🍾 CHAMPAGNE -->
+  <h2 class="section-title">🍾 Champagne (70 cl)</h2>
+  <div class="grid">
+    <div class="card"><h3>İnci Damlası</h3><span></span></div>
+    <div class="card"><h3>Prosecco Champagne</h3><span></span></div>
+    <div class="card"><h3>Moët & Chandon</h3><span></span></div>
+  </div>
+
+</div>
+
+
+</section>
+
+
 
 <script>
 
@@ -250,6 +524,12 @@ function goPage(btn, pageIndex) {
 }
 
 function openTab(tabId, btn) {
+// 🔴 Sekme değişince aramayı kapat
+if (searchInput && searchInput.value.trim() !== "") {
+  searchInput.value = "";
+  searchInput.dispatchEvent(new Event("input"));
+}
+
   // Sekme butonları
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
@@ -352,6 +632,14 @@ if (activeTab) {
 
   }
 });
+
+function openDrinkTab(id, btn) {
+  document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.querySelectorAll('.drink-section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 
 </script>
 
