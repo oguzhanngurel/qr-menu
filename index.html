@@ -17,6 +17,13 @@
 <button class="tab" onclick="openTab('salatalar', this)">Salatalar</button>
 <button class="tab" onclick="openTab('desserts', this)">Tatlılar</button>
 </div>
+<div class="search-box">
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Menüde ara..."
+  >
+</div>
 
 <!-- ================= IZGARALAR ================= -->
 <section class="menu-section active" id="izgaralar">
@@ -226,6 +233,14 @@
 
 
 <script>
+
+const TAB_MAP = {
+  "Izgaralar": "izgaralar",
+  "Soğuk Mezeler": "soguk",
+  "Salatalar": "salatalar",
+  "Tatlılar": "desserts"
+};
+
 function goPage(btn, pageIndex) {
   const section = btn.closest('.menu-section');
   const pages = section.querySelectorAll('.page');
@@ -252,6 +267,7 @@ function openTab(tabId, btn) {
 
   // Seçilen sekmeyi aç
   document.getElementById(tabId).classList.add('active');
+  document.getElementById('searchInput').value = '';
 }
 
 /* QR menü kiosk hissi */
@@ -271,10 +287,74 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
+/* QR menü arama çubuğu */
+const searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+  const sections = document.querySelectorAll('.menu-section');
+  const navButtons = document.querySelectorAll('.nav-btn');
+
+  // 🔍 Arama varsa
+  if (query !== '') {
+
+    navButtons.forEach(btn => btn.classList.add('hidden'));
+
+    sections.forEach(section => {
+	// 🔓 Tüm sayfaları arama sırasında aktif yap
+const pages = section.querySelectorAll('.page');
+pages.forEach(p => {
+  p.classList.add('active');
+  p.style.position = 'relative';
+});
+      let hasMatch = false;
+
+      const cards = section.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(query)) {
+          card.style.display = '';
+          hasMatch = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // ❌ Hiç eşleşme yoksa bu kategori görünmesin
+      section.style.display = hasMatch ? 'block' : 'none';
+    });
+
+  } 
+  // 🔙 Arama temizlenince
+  else {
+
+    navButtons.forEach(btn => btn.classList.remove('hidden'));
+
+    sections.forEach(section => {
+      section.style.display = '';
+      section.classList.remove('active');
+
+      const cards = section.querySelectorAll('.card');
+      cards.forEach(card => card.style.display = '');
+
+      const pages = section.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      if (pages.length) pages[0].classList.add('active');
+    });
+
+    // 🔥 Aktif sekmeye geri dön
+    const activeTab = document.querySelector('.tab.active');
+if (activeTab) {
+  const tabId = TAB_MAP[activeTab.innerText.trim()];
+  openTab(tabId, activeTab);
+}
+
+  }
+});
+
 </script>
 
 
 </body>
 </html>
-
-
