@@ -526,7 +526,8 @@ function goPage(btn, pageIndex) {
 }
 
 function openTab(tabId, btn, fromSearch = false) {
-
+ // 📱 MOBİL FIX: klavyeyi kapat
+  searchInput.blur();
   // 🔍 sadece KULLANICI tıklarsa aramayı temizle
   if (!fromSearch && searchInput && searchInput.value.trim() !== '') {
     searchInput.value = '';
