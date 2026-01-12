@@ -507,12 +507,14 @@
 
 
 <script>
+let lastActiveTab = 'izgaralar';
 
 const TAB_MAP = {
   "Izgaralar": "izgaralar",
   "Soğuk Mezeler": "soguk",
   "Salatalar": "salatalar",
-  "Tatlılar": "desserts"
+  "Tatlılar": "desserts",
+  "İçecekler": "icecekler"
 };
 
 function goPage(btn, pageIndex) {
@@ -524,124 +526,162 @@ function goPage(btn, pageIndex) {
 }
 
 function openTab(tabId, btn) {
-// 🔴 Sekme değişince aramayı kapat
-if (searchInput && searchInput.value.trim() !== "") {
-  searchInput.value = "";
-  searchInput.dispatchEvent(new Event("input"));
-}
-
-  // Sekme butonları
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
 
-  // Tüm sekmeleri gizle + sayfayı sıfırla
   document.querySelectorAll('.menu-section').forEach(section => {
     section.classList.remove('active');
 
     const pages = section.querySelectorAll('.page');
     pages.forEach(p => p.classList.remove('active'));
-    if (pages.length > 0) {
-      pages[0].classList.add('active');
-    }
+    if (pages.length) pages[0].classList.add('active');
   });
 
-  // Seçilen sekmeyi aç
-  document.getElementById(tabId).classList.add('active');
-  document.getElementById('searchInput').value = '';
+  const target = document.getElementById(tabId);
+  if (target) target.classList.add('active');
+
+  lastActiveTab = tabId;
 }
 
 /* QR menü kiosk hissi */
 window.onload = () => {
-  setTimeout(() => {
-    window.scrollTo(0, 1);
-  }, 100);
+  setTimeout(() => window.scrollTo(0, 1), 100);
 };
 
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('touchstart', () => {
-    card.classList.add('pressed');
-  });
-
-  card.addEventListener('touchend', () => {
-    card.classList.remove('pressed');
-  });
-});
-
-/* QR menü arama çubuğu */
+/* 🔍 ARAMA */
 const searchInput = document.getElementById('searchInput');
 
 searchInput.addEventListener('input', function () {
+
+
   const query = this.value.trim().toLowerCase();
   const sections = document.querySelectorAll('.menu-section');
-  const navButtons = document.querySelectorAll('.nav-btn');
 
-  // 🔍 Arama varsa
+  /* =======================
+     🔎 ARAMA VARSA
+  ======================= */
   if (query !== '') {
 
-    navButtons.forEach(btn => btn.classList.add('hidden'));
+    // 🔥 Aramada sayfalama ve ileri butonları iptal
+    document.body.classList.add('searching');
+
+
+    let matchedTab = null;
 
     sections.forEach(section => {
-	// 🔓 Tüm sayfaları arama sırasında aktif yap
-const pages = section.querySelectorAll('.page');
-pages.forEach(p => {
-  p.classList.add('active');
-  p.style.position = 'relative';
-});
-      let hasMatch = false;
+      let sectionHasMatch = false;
 
-      const cards = section.querySelectorAll('.card');
-
-      cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        if (text.includes(query)) {
-          card.style.display = '';
-          hasMatch = true;
-        } else {
-          card.style.display = 'none';
-        }
+      section.querySelectorAll('.card').forEach(card => {
+        const match = card.innerText.toLowerCase().includes(query);
+        card.style.display = match ? '' : 'none';
+        if (match) sectionHasMatch = true;
       });
+	  
+	  /* 🍷 İçecek grupları: başlık + grid kontrolü */
+section.querySelectorAll('.section-title').forEach(title => {
+  const grid = title.nextElementSibling;
+  if (!grid) return;
 
-      // ❌ Hiç eşleşme yoksa bu kategori görünmesin
-      section.style.display = hasMatch ? 'block' : 'none';
+  const visibleCards = grid.querySelectorAll(
+    '.card:not([style*="display: none"])'
+  );
+
+  const show = visibleCards.length > 0;
+  title.style.display = show ? 'block' : 'none';
+  grid.style.display = show ? 'grid' : 'none';
+});
+
+
+      /* 🍹 İçecek alt sekmeleri */
+      if (section.id === 'icecekler') {
+        section.querySelectorAll('.drink-section').forEach(sub => {
+          let subMatch = false;
+
+          sub.querySelectorAll('.card').forEach(card => {
+            if (card.style.display !== 'none') subMatch = true;
+          });
+
+          sub.style.display = subMatch ? 'block' : 'none';
+
+          if (subMatch) {
+            sectionHasMatch = true;
+
+            // 🔥 eşleşen içecek alt sekmesini aktif yap
+            document.querySelectorAll('.drink-section').forEach(s => s.classList.remove('active'));
+            sub.classList.add('active');
+
+            document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+            const btn = document.querySelector(`.sub-tab[onclick*="${sub.id}"]`);
+            if (btn) btn.classList.add('active');
+          }
+        });
+      }
+
+      section.style.display = sectionHasMatch ? 'block' : 'none';
+      if (sectionHasMatch && !matchedTab) matchedTab = section.id;
     });
 
-  } 
-  // 🔙 Arama temizlenince
+    // 🔥 Eşleşen ana sekmeyi aç
+    if (matchedTab) {
+      openTab(
+        matchedTab,
+        document.querySelector(`.tab[onclick*="${matchedTab}"]`)
+      );
+    }
+  }
+
+  /* =======================
+     🔙 ARAMA TEMİZLENİNCE
+  ======================= */
   else {
 
-    navButtons.forEach(btn => btn.classList.remove('hidden'));
+    // 🔁 Butonları geri getir
+    document.body.classList.remove('searching');
 
     sections.forEach(section => {
       section.style.display = '';
       section.classList.remove('active');
 
-      const cards = section.querySelectorAll('.card');
-      cards.forEach(card => card.style.display = '');
+      section.querySelectorAll('.card').forEach(card => {
+        card.style.display = '';
+      });
 
+      section.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       const pages = section.querySelectorAll('.page');
-      pages.forEach(p => p.classList.remove('active'));
       if (pages.length) pages[0].classList.add('active');
     });
 
-    // 🔥 Aktif sekmeye geri dön
-    const activeTab = document.querySelector('.tab.active');
-if (activeTab) {
-  const tabId = TAB_MAP[activeTab.innerText.trim()];
-  openTab(tabId, activeTab);
-}
+    document.querySelectorAll('.drink-section').forEach(sub => {
+      sub.style.display = '';
+      sub.classList.remove('active');
+    });
 
+    openTab(
+      lastActiveTab,
+      document.querySelector(`.tab[onclick*="${lastActiveTab}"]`)
+    );
   }
 });
 
+/* 🍹 İÇECEK ALT SEKME */
 function openDrinkTab(id, btn) {
   document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
 
-  document.querySelectorAll('.drink-section').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
+  document.querySelectorAll('.drink-section').forEach(s => {
+    s.classList.remove('active');
+    s.style.display = '';
+  });
 
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.add('active');
+    target.style.display = 'block';
+  }
+}
 </script>
+
+
 
 
 </body>
