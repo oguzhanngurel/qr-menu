@@ -266,5 +266,23 @@ h1 {
   line-height: 1;
 }
 .nav-btn:active {
-  transform: scale(0.95);
+  transform: translateX(-50%) scale(0.95);
+}
+.nav-btn.hidden {
+  display: none;
+}
+
+.search-box {
+  max-width: 400px;
+  margin: 0 auto 20px;
+  padding: 0 16px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  outline: none;
 }
