@@ -348,3 +348,14 @@ h1 {
 .drink-section.active {
   display: block;
 }
+
+/* 🔍 ARAMA MODU */
+body.searching .page {
+  position: relative !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+body.searching .nav-btn {
+  display: none !important;
+}
