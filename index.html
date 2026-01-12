@@ -525,7 +525,14 @@ function goPage(btn, pageIndex) {
   pages[pageIndex - 1].classList.add('active');
 }
 
-function openTab(tabId, btn) {
+function openTab(tabId, btn, fromSearch = false) {
+
+  // 🔍 sadece KULLANICI tıklarsa aramayı temizle
+  if (!fromSearch && searchInput && searchInput.value.trim() !== '') {
+    searchInput.value = '';
+    searchInput.dispatchEvent(new Event('input'));
+  }
+
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   if (btn) btn.classList.add('active');
 
@@ -541,6 +548,15 @@ function openTab(tabId, btn) {
   if (target) target.classList.add('active');
 
   lastActiveTab = tabId;
+  
+  // 🥤 İçecekler açılıyorsa varsayılan alt sekme
+if (tabId === 'icecekler') {
+  const defaultBtn = document.querySelector('.sub-tab');
+  if (defaultBtn) {
+    openDrinkTab('cold', defaultBtn);
+  }
+}
+
 }
 
 /* QR menü kiosk hissi */
@@ -624,9 +640,11 @@ section.querySelectorAll('.section-title').forEach(title => {
     // 🔥 Eşleşen ana sekmeyi aç
     if (matchedTab) {
       openTab(
-        matchedTab,
-        document.querySelector(`.tab[onclick*="${matchedTab}"]`)
-      );
+  matchedTab,
+  document.querySelector(`.tab[onclick*="${matchedTab}"]`),
+  true // 🔥 aramadan geldiğini bildir
+);
+
     }
   }
 
@@ -634,6 +652,18 @@ section.querySelectorAll('.section-title').forEach(title => {
      🔙 ARAMA TEMİZLENİNCE
   ======================= */
   else {
+// 🍹 İçecekler: tüm alt içerikleri tamamen resetle
+document.querySelectorAll('#icecekler .card').forEach(card => {
+  card.style.display = '';
+});
+
+document.querySelectorAll('#icecekler .section-title').forEach(title => {
+  title.style.display = '';
+});
+
+document.querySelectorAll('#icecekler .grid').forEach(grid => {
+  grid.style.display = '';
+});
 
     // 🔁 Butonları geri getir
     document.body.classList.remove('searching');
