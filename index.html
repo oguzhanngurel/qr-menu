@@ -551,7 +551,7 @@ function openTab(tabId, btn, fromSearch = false) {
   lastActiveTab = tabId;
   
   // 🥤 İçecekler açılıyorsa varsayılan alt sekme
-if (tabId === 'icecekler') {
+if (tabId === 'icecekler' && !fromSearch) {
   const defaultBtn = document.querySelector('.sub-tab');
   if (defaultBtn) {
     openDrinkTab('cold', defaultBtn);
@@ -621,16 +621,23 @@ section.querySelectorAll('.section-title').forEach(title => {
           sub.style.display = subMatch ? 'block' : 'none';
 
           if (subMatch) {
-            sectionHasMatch = true;
+  sectionHasMatch = true;
 
-            // 🔥 eşleşen içecek alt sekmesini aktif yap
-            document.querySelectorAll('.drink-section').forEach(s => s.classList.remove('active'));
-            sub.classList.add('active');
+  const btn = document.querySelector(`.sub-tab[onclick*="${sub.id}"]`);
 
-            document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
-            const btn = document.querySelector(`.sub-tab[onclick*="${sub.id}"]`);
-            if (btn) btn.classList.add('active');
-          }
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.drink-section').forEach(s => {
+      s.classList.remove('active');
+      s.style.display = 'none';
+    });
+
+    sub.classList.add('active');
+    sub.style.display = 'block';
+
+    document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+  });
+}
         });
       }
 
