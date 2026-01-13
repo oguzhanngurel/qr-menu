@@ -499,9 +499,19 @@ let lastActiveTab = 'izgaralar';
 function goPage(btn, pageIndex) {
   const section = btn.closest('.menu-section');
   const pages = section.querySelectorAll('.page');
+
   pages.forEach(p => p.classList.remove('active'));
   pages[pageIndex - 1].classList.add('active');
+
+  // 🔥 Sayfa değişince üste at (mobil & pc)
+  setTimeout(() => {
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }, 50);
 }
+
 
 const searchInput = document.getElementById('searchInput');
 
