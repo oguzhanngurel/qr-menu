@@ -110,20 +110,27 @@ h1 {
 .tabs {
   display: flex;
   gap: 12px;
-  padding: 0 16px;
-  margin: 20px auto 16px;
 
-  justify-content: center;   /* 🔥 ORTALAR */
-  max-width: 1200px;         /* 🔥 MENÜ İLE HİZALAR */
+  padding: 0 16px;
+  margin: 20px 0 30px;   /* ❗ auto KALDIRILDI */
 
   overflow-x: auto;
+  overflow-y: hidden;
+
   white-space: nowrap;
 
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+
   -webkit-overflow-scrolling: touch;
+
   scrollbar-width: none;
 
-  height: 52px;
-  align-items: center;
+  justify-content: flex-start; /* 🔥 KRİTİK */
+}
+
+.tab:first-child {
+  margin-left: 0;
 }
 
 .tabs::-webkit-scrollbar {
