@@ -376,4 +376,27 @@ body.searching .grid {
   width: 100%;
 }
 
+/* =========================
+   LOGO ALANI
+========================= */
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 10px;
+}
+
+.logo-wrapper img {
+  max-width: 220px;
+  width: 70%;
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.6));
+}
+
+/* Mobilde biraz daha büyük */
+@media (max-width: 768px) {
+  .logo-wrapper img {
+    max-width: 260px;
+  }
+}
 
