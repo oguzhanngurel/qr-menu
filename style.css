@@ -19,10 +19,9 @@ h1 {
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 20px;
-  align-items: stretch;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
 }
 
 .card {
@@ -88,7 +87,7 @@ h1 {
 @media (max-width: 768px) {
 
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
@@ -359,6 +358,22 @@ body.searching .page {
 
 body.searching .nav-btn {
   display: none !important;
+}
+
+
+ /* 🔍 ARAMA MODUNDA SAYFALAMA KAPAT */
+body.searching .page {
+  position: static !important;
+  inset: auto !important;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  width: 100% !important;
+}
+
+/* grid genişliği sabitle */
+body.searching .grid {
+  width: 100%;
 }
 
 
