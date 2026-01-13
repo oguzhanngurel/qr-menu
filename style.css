@@ -111,21 +111,19 @@ h1 {
   display: flex;
   gap: 12px;
   padding: 0 16px;
-  margin: 20px auto 30px;
+  margin: 20px auto 16px;
+
+  justify-content: center;   /* 🔥 ORTALAR */
+  max-width: 1200px;         /* 🔥 MENÜ İLE HİZALAR */
 
   overflow-x: auto;
-  overflow-y: hidden;
-
   white-space: nowrap;
-
-  touch-action: pan-x;
-  overscroll-behavior: contain;
 
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 
-  height: 52px;           /* 🔥 Y eksenini kilitler */
-  align-items: center;    /* 🔥 dikey sabitleme */
+  height: 52px;
+  align-items: center;
 }
 
 .tabs::-webkit-scrollbar {
@@ -400,3 +398,20 @@ body.searching .grid {
   }
 }
 
+.search-box {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.search-box input {
+  padding-left: 46px; /* ikon için boşluk */
+}
