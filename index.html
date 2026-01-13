@@ -540,6 +540,11 @@ searchInput.addEventListener('input', function () {
   const sections = document.querySelectorAll('.menu-section');
 
   if (query !== '') {
+  // 🔥 Aramada tüm sayfaları aktif yap
+document.querySelectorAll('.page').forEach(p => {
+  p.classList.add('active');
+});
+
     document.body.classList.add('searching');
     let matchedTab = null;
 
@@ -607,6 +612,11 @@ searchInput.addEventListener('input', function () {
 
 
   } else {
+  // 🔙 Arama bitince sayfalamayı sıfırla
+document.querySelectorAll('.page').forEach(p => {
+  p.classList.remove('active');
+});
+
     document.body.classList.remove('searching');
 
     document.querySelectorAll('.card, .section-title, .grid').forEach(el => el.style.display = '');
